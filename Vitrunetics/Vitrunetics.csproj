@@ -179,7 +179,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Exercise.cs" />
     <Compile Include="Models\Patient.cs" />
+    <Compile Include="Models\PatientExerciseViewModel.cs" />
     <Compile Include="NavigationRoutes\INavigationRouteFilter.cs" />
     <Compile Include="NavigationRoutes\NamedRoute.cs" />
     <Compile Include="NavigationRoutes\NavigationExtensions.cs" />
@@ -307,6 +309,8 @@
     <Content Include="Views\Shared\_BootstrapLayout.basic.cshtml" />
     <Content Include="Views\Dashboard\Create.cshtml" />
     <Content Include="Views\Dashboard\Details.cshtml" />
+    <Content Include="Views\Dashboard\CreateExercise.cshtml" />
+    <Content Include="Views\Dashboard\DetailsExercise.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
