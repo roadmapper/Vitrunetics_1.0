@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml;
 using Vitrunetics.Models;
 
 namespace Vitrunetics.Controllers
@@ -10,12 +12,22 @@ namespace Vitrunetics.Controllers
     public class DashboardController : BootstrapBaseController
     {
         private static List<Patient> _models = ModelIntializer.CreatePatients();
+        private static List<Exercise> _models2 = ModelIntializer2.CreateExercises();
+        
         [Authorize]
         public ActionResult Dashboard()
         {
 
-            var patients = _models;
-            return View(patients);
+            /*var patients = _models;
+            return View(patients);*/
+
+            PatientExerciseViewModel view = new PatientExerciseViewModel();
+            view.PatientData = _models;
+            view.ExerciseData = _models2;
+            List<PatientExerciseViewModel> stuff = new List<PatientExerciseViewModel>();
+            stuff.Add(view);
+
+            return View(stuff);
         }
 
         [HttpPost]
@@ -36,6 +48,12 @@ namespace Vitrunetics.Controllers
         {
             return View(new Patient());
         }
+
+        public ActionResult CreateExercise()
+        {
+            return View(new Exercise());
+        }
+
 
         public ActionResult Delete(int id)
         {
@@ -70,6 +88,34 @@ namespace Vitrunetics.Controllers
         {
             var model = _models.Get(id);
             return View(model);
+        }
+
+        public ActionResult DetailsExercise(int id)
+        {
+            var model = _models2.Get(id);
+            return View(model);
+        }
+
+        public FileStreamResult GenerateXml(int id)
+        {
+            var model = _models2.Get(id);
+            /*XmlDocument doc = new XmlDocument();
+            doc.LoadXml("<exercise>" + model.Name + "</exercise>"); //Your string here
+
+            // Save the document to a file and auto-indent the output.
+            XmlTextWriter writer = new XmlTextWriter("exercise" + id + ".xml", null);
+            writer.Formatting = Formatting.Indented;
+            doc.Save(writer);
+            doc.*/
+
+
+            string xml = "<exercise>" + model.Name + "</exercise>"; //string presented xml
+            var stream = new MemoryStream();
+            var writer = XmlWriter.Create(stream);
+            writer.WriteRaw(xml);
+            stream.Position = 0;
+            var fileStreamResult = File(stream, "application/octet-stream", "exercise" + id + ".xml");
+            return fileStreamResult;
         }
 
     }

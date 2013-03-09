@@ -1,41 +1,55 @@
 ﻿@using Vitrunetics.BootstrapSupport
-@model System.Collections.IEnumerable 
+@using Vitrunetics.Models
+@{
+    //model System.Collections.IEnumerable
+}
+@model List<Vitrunetics.Models.PatientExerciseViewModel>
 
-<h4>@Model.GetLabel() <small>Listing</small></h4>
+@foreach (var item in Model) { 
+    <h4>@item.PatientData.GetLabel() <small>Listing</small></h4>
+}
+
 <table class="table table-striped">
-    <caption></caption>
-    <thead>
-        <tr>
-            @foreach (var property in Model.VisibleProperties())
-            {
-                <th>
-                    @property.GetLabel().ToSeparatedWords()
-                </th>
-            }
-            <th></th>
-        </tr>
-    </thead>
-    @{ int index = 0; }
-    @foreach (var model in Model)
+
+    @foreach (var item in Model)
     {
-        ViewData[index.ToString()] = model;
+        <thead>
+            <tr>
+                @foreach (var property in item.PatientData.VisibleProperties())
+                {
+                    <th>
+                        @if (property.Name != "Regimen")
+                        {
+                            @property.GetLabel().ToSeparatedWords()
+                        }
+                    </th>
+                }
+                <th></th>
+            </tr>
+        </thead>
+                int index = 0;
+                foreach (var model in item.PatientData)
+                {
+                    ViewData[index.ToString()] = model;
         <tr>
             @foreach (var property in model.VisibleProperties())
             {
                 <td>
-                    @Html.Display(index + "." + property.Name)
+                    @if (property.Name != "Regimen")
+                    {
+                        @Html.Display(index + "." + property.Name)
+                    }
                 </td>                    
             }
             <td>
                 <div class="btn-group">
-                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-                        Action
+                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Action
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         @{
                             @Html.TryPartial("_actions", model)                            
-                            var routevalues = model.GetIdValue();  
+            var routevalues = model.GetIdValue();  
                             <li>@Html.ActionLink("Edit", "Edit", routevalues)</li>
                             <li>@Html.ActionLink("Details", "Details", routevalues)</li>
                             <li class="divider"></li>
@@ -48,11 +62,80 @@
             </td>
         </tr>
             index++;
+                }
     }
 
+
 </table>
+
+<table class="table table-striped">
+@foreach (var item in Model) { 
+    <h4>@item.ExerciseData.GetLabel() <small>Listing</small></h4>
+}
+
+    @foreach (var item in Model)
+    {
+        <thead>
+            <tr>
+                @foreach (var property in item.ExerciseData.VisibleProperties())
+                {
+                    <th>
+                        @if (property.Name != "Regimen")
+                        {
+                            @property.GetLabel().ToSeparatedWords()
+                        }
+                    </th>
+                }
+                <th></th>
+            </tr>
+        </thead>
+                int index = 0;
+                foreach (var model in item.ExerciseData)
+                {
+                    ViewData[index.ToString()] = model;
+        <tr>
+            @foreach (var property in model.VisibleProperties())
+            {
+                <td>
+                    @if (property.Name != "Regimen")
+                    {
+                        @Html.Display(index + "." + property.Name)
+                    }
+                </td>                    
+            }
+            <td>
+                <div class="btn-group">
+                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Action
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        @{
+                            @Html.TryPartial("_actions", model)                            
+            var routevalues = model.GetIdValue();  
+                            <li>@Html.ActionLink("Edit", "Edit", routevalues)</li>
+                            <li>@Html.ActionLink("Details", "Details", routevalues)</li>
+                            <li>@Html.ActionLink("GenerateXml", "GenerateXml", routevalues)</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Delete", "Delete", routevalues)</li>
+                              
+                        }
+                    </ul>
+                </div>
+
+            </td>
+        </tr>
+            index++;
+                }
+    }
+
+
+</table>
+
 <p>
-    @Html.ActionLink("Create New", "Create", null, new {@class = "btn"})
+    @Html.ActionLink("Create New Patient", "Create", null, new { @class = "btn" })
+    @Html.ActionLink("Create New Exercise", "CreateExercise", null, new { @class = "btn" })
+
+
 </p>
 
 

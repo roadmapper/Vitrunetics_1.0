@@ -27,6 +27,9 @@ namespace Vitrunetics.Models
         [DataType(DataType.Text)]
         public string Reason { get; set; }
 
+        /*[
+        public List<Exercise> Regimen { get; set; }*/
+
         /*[DataType(DataType.Password)]
         public string Password { get; set; }*/
     }
