@@ -96,27 +96,32 @@ namespace Vitrunetics.Controllers
             return View(model);
         }
 
-        public FileStreamResult GenerateXml(int id)
+        /*public FileStreamResult GenerateXml(int id)
         {
-            var model = _models2.Get(id);
-            /*XmlDocument doc = new XmlDocument();
+            /*var model = _models2.Get(id);
+            XmlDocument doc = new XmlDocument();
             doc.LoadXml("<exercise>" + model.Name + "</exercise>"); //Your string here
+            //FileStream f = new FileStream("exercise" + id + ".xml", FileMode.Create);
 
             // Save the document to a file and auto-indent the output.
-            XmlTextWriter writer = new XmlTextWriter("exercise" + id + ".xml", null);
+            XmlTextWriter writer = new XmlTextWriter(f, null);
             writer.Formatting = Formatting.Indented;
             doc.Save(writer);
-            doc.*/
+            var fileStreamResult = File(f, "application/xml");
+            return fileStreamResult;*/
+            
 
 
-            string xml = "<exercise>" + model.Name + "</exercise>"; //string presented xml
+            /*string xml = "<exercise>" + model.Name + "</exercise>"; //string presented xml
             var stream = new MemoryStream();
             var writer = XmlWriter.Create(stream);
             writer.WriteRaw(xml);
             stream.Position = 0;
-            var fileStreamResult = File(stream, "application/octet-stream", "exercise" + id + ".xml");
-            return fileStreamResult;
-        }
+            var fileStreamResult = File(stream, "application/xml");
+            return fileStreamResult;*/
+
+            
+        //}
 
     }
 }
