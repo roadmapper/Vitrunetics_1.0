@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Vitrunetics.Models
 {
-    public class Patient
+    public class Patient 
     {
         public int Id { get; set; }
         [Required]

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vitrunetics", "Vitrunetics\Vitrunetics.csproj", "{853E99A4-A01F-4904-85FF-B1A851E92223}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsAzure1", "WindowsAzure1\WindowsAzure1.csproj", "{F3694C4B-7766-4130-BB5E-B0B7DAB3CD63}"
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "VitruneticsCloud", "VitruneticsCloud\VitruneticsCloud.ccproj", "{A5B129CE-3555-4278-A976-DE6EAFEC086D}"
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
@@ -14,9 +14,9 @@ Global
 		SccProjectUniqueName1 = Vitrunetics\\Vitrunetics.csproj
 		SccProjectName1 = Vitrunetics
 		SccLocalPath1 = Vitrunetics
-		SccProjectUniqueName2 = WindowsAzure1\\WindowsAzure1.csproj
-		SccProjectName2 = WindowsAzure1
-		SccLocalPath2 = WindowsAzure1
+		SccProjectUniqueName2 = VitruneticsCloud\\VitruneticsCloud.ccproj
+		SccProjectName2 = VitruneticsCloud
+		SccLocalPath2 = VitruneticsCloud
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,10 +27,10 @@ Global
 		{853E99A4-A01F-4904-85FF-B1A851E92223}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{853E99A4-A01F-4904-85FF-B1A851E92223}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{853E99A4-A01F-4904-85FF-B1A851E92223}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F3694C4B-7766-4130-BB5E-B0B7DAB3CD63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F3694C4B-7766-4130-BB5E-B0B7DAB3CD63}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F3694C4B-7766-4130-BB5E-B0B7DAB3CD63}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F3694C4B-7766-4130-BB5E-B0B7DAB3CD63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5B129CE-3555-4278-A976-DE6EAFEC086D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5B129CE-3555-4278-A976-DE6EAFEC086D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5B129CE-3555-4278-A976-DE6EAFEC086D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5B129CE-3555-4278-A976-DE6EAFEC086D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
