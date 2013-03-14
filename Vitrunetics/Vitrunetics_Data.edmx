@@ -1,0 +1,741 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VitruneticsUsersModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="VitruneticsUsersModelStoreContainer">
+          <EntitySet Name="Exercise" EntityType="VitruneticsUsersModel.Store.Exercise" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ExerciseRegimen" EntityType="VitruneticsUsersModel.Store.ExerciseRegimen" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ExerciseSequence" EntityType="VitruneticsUsersModel.Store.ExerciseSequence" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ExerciseStep" EntityType="VitruneticsUsersModel.Store.ExerciseStep" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Joint" EntityType="VitruneticsUsersModel.Store.Joint" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Patient" EntityType="VitruneticsUsersModel.Store.Patient" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PatientRegimen" EntityType="VitruneticsUsersModel.Store.PatientRegimen" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Regimen" EntityType="VitruneticsUsersModel.Store.Regimen" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserProfile" EntityType="VitruneticsUsersModel.Store.UserProfile" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_Membership" EntityType="VitruneticsUsersModel.Store.webpages_Membership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="VitruneticsUsersModel.Store.webpages_OAuthMembership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_Roles" EntityType="VitruneticsUsersModel.Store.webpages_Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_UsersInRoles" EntityType="VitruneticsUsersModel.Store.webpages_UsersInRoles" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_ExerciseRegimen_0" Association="VitruneticsUsersModel.Store.FK_ExerciseRegimen_0">
+            <End Role="Exercise" EntitySet="Exercise" />
+            <End Role="ExerciseRegimen" EntitySet="ExerciseRegimen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExerciseRegimen_1" Association="VitruneticsUsersModel.Store.FK_ExerciseRegimen_1">
+            <End Role="Regimen" EntitySet="Regimen" />
+            <End Role="ExerciseRegimen" EntitySet="ExerciseRegimen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExerciseSequence_0" Association="VitruneticsUsersModel.Store.FK_ExerciseSequence_0">
+            <End Role="Exercise" EntitySet="Exercise" />
+            <End Role="ExerciseSequence" EntitySet="ExerciseSequence" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExerciseStep_0" Association="VitruneticsUsersModel.Store.FK_ExerciseStep_0">
+            <End Role="ExerciseSequence" EntitySet="ExerciseSequence" />
+            <End Role="ExerciseStep" EntitySet="ExerciseStep" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Joint_0" Association="VitruneticsUsersModel.Store.FK_Joint_0">
+            <End Role="ExerciseStep" EntitySet="ExerciseStep" />
+            <End Role="Joint" EntitySet="Joint" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_0" Association="VitruneticsUsersModel.Store.FK_Patient_0">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientRegimen_0" Association="VitruneticsUsersModel.Store.FK_PatientRegimen_0">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="PatientRegimen" EntitySet="PatientRegimen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientRegimen_1" Association="VitruneticsUsersModel.Store.FK_PatientRegimen_1">
+            <End Role="Regimen" EntitySet="Regimen" />
+            <End Role="PatientRegimen" EntitySet="PatientRegimen" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RoleId" Association="VitruneticsUsersModel.Store.fk_RoleId">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_UserId" Association="VitruneticsUsersModel.Store.fk_UserId">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Exercise">
+          <Key>
+            <PropertyRef Name="ExerciseID" />
+          </Key>
+          <Property Name="ExerciseID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ExerciseRegimen">
+          <Key>
+            <PropertyRef Name="ExerciseRegimenID" />
+          </Key>
+          <Property Name="ExerciseRegimenID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ExerciseID" Type="int" Nullable="false" />
+          <Property Name="RegimenID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExerciseSequence">
+          <Key>
+            <PropertyRef Name="ExerciseSequenceID" />
+          </Key>
+          <Property Name="ExerciseSequenceID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ExerciseID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExerciseStep">
+          <Key>
+            <PropertyRef Name="ExerciseStepID" />
+          </Key>
+          <Property Name="ExerciseStepID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DelayTime" Type="int" Nullable="false" />
+          <Property Name="Instructions" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ExerciseSequenceID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Joint">
+          <Key>
+            <PropertyRef Name="JointID" />
+          </Key>
+          <Property Name="JointID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Angle" Type="int" Nullable="false" />
+          <Property Name="JointNumber" Type="int" Nullable="false" />
+          <Property Name="Tolerance" Type="int" Nullable="false" />
+          <Property Name="ExerciseStepID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TherapistID" Type="int" Nullable="false" />
+          <Property Name="FName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="CreatedDate" Type="int" />
+          <Property Name="Calibration" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="PatientRegimen">
+          <Key>
+            <PropertyRef Name="PatientRegimenID" />
+          </Key>
+          <Property Name="PatientRegimenID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="int" Nullable="false" />
+          <Property Name="RegimenID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Regimen">
+          <Key>
+            <PropertyRef Name="RegimenID" />
+          </Key>
+          <Property Name="RegimenID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RegimenName" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsConfirmed" Type="bit" />
+          <Property Name="LastPasswordFailureDate" Type="datetime" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordChangedDate" Type="datetime" />
+          <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="ProviderUserId" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="webpages_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ExerciseRegimen_0">
+          <End Role="Exercise" Type="VitruneticsUsersModel.Store.Exercise" Multiplicity="1" />
+          <End Role="ExerciseRegimen" Type="VitruneticsUsersModel.Store.ExerciseRegimen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exercise">
+              <PropertyRef Name="ExerciseID" />
+            </Principal>
+            <Dependent Role="ExerciseRegimen">
+              <PropertyRef Name="ExerciseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExerciseRegimen_1">
+          <End Role="Regimen" Type="VitruneticsUsersModel.Store.Regimen" Multiplicity="1" />
+          <End Role="ExerciseRegimen" Type="VitruneticsUsersModel.Store.ExerciseRegimen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regimen">
+              <PropertyRef Name="RegimenID" />
+            </Principal>
+            <Dependent Role="ExerciseRegimen">
+              <PropertyRef Name="RegimenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExerciseSequence_0">
+          <End Role="Exercise" Type="VitruneticsUsersModel.Store.Exercise" Multiplicity="1" />
+          <End Role="ExerciseSequence" Type="VitruneticsUsersModel.Store.ExerciseSequence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exercise">
+              <PropertyRef Name="ExerciseID" />
+            </Principal>
+            <Dependent Role="ExerciseSequence">
+              <PropertyRef Name="ExerciseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExerciseStep_0">
+          <End Role="ExerciseSequence" Type="VitruneticsUsersModel.Store.ExerciseSequence" Multiplicity="1" />
+          <End Role="ExerciseStep" Type="VitruneticsUsersModel.Store.ExerciseStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExerciseSequence">
+              <PropertyRef Name="ExerciseSequenceID" />
+            </Principal>
+            <Dependent Role="ExerciseStep">
+              <PropertyRef Name="ExerciseSequenceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Joint_0">
+          <End Role="ExerciseStep" Type="VitruneticsUsersModel.Store.ExerciseStep" Multiplicity="1" />
+          <End Role="Joint" Type="VitruneticsUsersModel.Store.Joint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExerciseStep">
+              <PropertyRef Name="ExerciseStepID" />
+            </Principal>
+            <Dependent Role="Joint">
+              <PropertyRef Name="ExerciseStepID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_0">
+          <End Role="UserProfile" Type="VitruneticsUsersModel.Store.UserProfile" Multiplicity="0..1" />
+          <End Role="Patient" Type="VitruneticsUsersModel.Store.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientRegimen_0">
+          <End Role="Patient" Type="VitruneticsUsersModel.Store.Patient" Multiplicity="1" />
+          <End Role="PatientRegimen" Type="VitruneticsUsersModel.Store.PatientRegimen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="PatientRegimen">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientRegimen_1">
+          <End Role="Regimen" Type="VitruneticsUsersModel.Store.Regimen" Multiplicity="1" />
+          <End Role="PatientRegimen" Type="VitruneticsUsersModel.Store.PatientRegimen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regimen">
+              <PropertyRef Name="RegimenID" />
+            </Principal>
+            <Dependent Role="PatientRegimen">
+              <PropertyRef Name="RegimenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RoleId">
+          <End Role="webpages_Roles" Type="VitruneticsUsersModel.Store.webpages_Roles" Multiplicity="1" />
+          <End Role="webpages_UsersInRoles" Type="VitruneticsUsersModel.Store.webpages_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="webpages_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="webpages_UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_UserId">
+          <End Role="UserProfile" Type="VitruneticsUsersModel.Store.UserProfile" Multiplicity="1" />
+          <End Role="webpages_UsersInRoles" Type="VitruneticsUsersModel.Store.webpages_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="webpages_UsersInRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VitruneticsUsersModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="VitruneticsUsersEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Exercises" EntityType="VitruneticsUsersModel.Exercise" />
+          <EntitySet Name="ExerciseRegimen" EntityType="VitruneticsUsersModel.ExerciseRegiman" />
+          <EntitySet Name="ExerciseSequences" EntityType="VitruneticsUsersModel.ExerciseSequence" />
+          <EntitySet Name="ExerciseSteps" EntityType="VitruneticsUsersModel.ExerciseStep" />
+          <EntitySet Name="Joints" EntityType="VitruneticsUsersModel.Joint" />
+          <EntitySet Name="Patients" EntityType="VitruneticsUsersModel.Patient" />
+          <EntitySet Name="PatientRegimen1" EntityType="VitruneticsUsersModel.PatientRegimen" />
+          <EntitySet Name="Regimen" EntityType="VitruneticsUsersModel.Regiman" />
+          <EntitySet Name="UserProfiles" EntityType="VitruneticsUsersModel.UserProfile" />
+          <EntitySet Name="webpages_Membership" EntityType="VitruneticsUsersModel.webpages_Membership" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="VitruneticsUsersModel.webpages_OAuthMembership" />
+          <EntitySet Name="webpages_Roles" EntityType="VitruneticsUsersModel.webpages_Roles" />
+          <AssociationSet Name="FK_ExerciseRegimen_0" Association="VitruneticsUsersModel.FK_ExerciseRegimen_0">
+            <End Role="Exercise" EntitySet="Exercises" />
+            <End Role="ExerciseRegimen" EntitySet="ExerciseRegimen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExerciseSequence_0" Association="VitruneticsUsersModel.FK_ExerciseSequence_0">
+            <End Role="Exercise" EntitySet="Exercises" />
+            <End Role="ExerciseSequence" EntitySet="ExerciseSequences" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExerciseRegimen_1" Association="VitruneticsUsersModel.FK_ExerciseRegimen_1">
+            <End Role="Regimen" EntitySet="Regimen" />
+            <End Role="ExerciseRegimen" EntitySet="ExerciseRegimen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ExerciseStep_0" Association="VitruneticsUsersModel.FK_ExerciseStep_0">
+            <End Role="ExerciseSequence" EntitySet="ExerciseSequences" />
+            <End Role="ExerciseStep" EntitySet="ExerciseSteps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Joint_0" Association="VitruneticsUsersModel.FK_Joint_0">
+            <End Role="ExerciseStep" EntitySet="ExerciseSteps" />
+            <End Role="Joint" EntitySet="Joints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_0" Association="VitruneticsUsersModel.FK_Patient_0">
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientRegimen_0" Association="VitruneticsUsersModel.FK_PatientRegimen_0">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="PatientRegimen" EntitySet="PatientRegimen1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientRegimen_1" Association="VitruneticsUsersModel.FK_PatientRegimen_1">
+            <End Role="Regimen" EntitySet="Regimen" />
+            <End Role="PatientRegimen" EntitySet="PatientRegimen1" />
+          </AssociationSet>
+          <AssociationSet Name="webpages_UsersInRoles" Association="VitruneticsUsersModel.webpages_UsersInRoles">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Exercise">
+          <Key>
+            <PropertyRef Name="ExerciseID" />
+          </Key>
+          <Property Name="ExerciseID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ExerciseRegimen" Relationship="VitruneticsUsersModel.FK_ExerciseRegimen_0" FromRole="Exercise" ToRole="ExerciseRegimen" />
+          <NavigationProperty Name="ExerciseSequences" Relationship="VitruneticsUsersModel.FK_ExerciseSequence_0" FromRole="Exercise" ToRole="ExerciseSequence" />
+        </EntityType>
+        <EntityType Name="ExerciseRegiman">
+          <Key>
+            <PropertyRef Name="ExerciseRegimenID" />
+          </Key>
+          <Property Name="ExerciseRegimenID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ExerciseID" Type="Int32" Nullable="false" />
+          <Property Name="RegimenID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Exercise" Relationship="VitruneticsUsersModel.FK_ExerciseRegimen_0" FromRole="ExerciseRegimen" ToRole="Exercise" />
+          <NavigationProperty Name="Regimen" Relationship="VitruneticsUsersModel.FK_ExerciseRegimen_1" FromRole="ExerciseRegimen" ToRole="Regimen" />
+        </EntityType>
+        <EntityType Name="ExerciseSequence">
+          <Key>
+            <PropertyRef Name="ExerciseSequenceID" />
+          </Key>
+          <Property Name="ExerciseSequenceID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ExerciseID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Exercise" Relationship="VitruneticsUsersModel.FK_ExerciseSequence_0" FromRole="ExerciseSequence" ToRole="Exercise" />
+          <NavigationProperty Name="ExerciseSteps" Relationship="VitruneticsUsersModel.FK_ExerciseStep_0" FromRole="ExerciseSequence" ToRole="ExerciseStep" />
+        </EntityType>
+        <EntityType Name="ExerciseStep">
+          <Key>
+            <PropertyRef Name="ExerciseStepID" />
+          </Key>
+          <Property Name="ExerciseStepID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DelayTime" Type="Int32" Nullable="false" />
+          <Property Name="Instructions" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ExerciseSequenceID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ExerciseSequence" Relationship="VitruneticsUsersModel.FK_ExerciseStep_0" FromRole="ExerciseStep" ToRole="ExerciseSequence" />
+          <NavigationProperty Name="Joints" Relationship="VitruneticsUsersModel.FK_Joint_0" FromRole="ExerciseStep" ToRole="Joint" />
+        </EntityType>
+        <EntityType Name="Joint">
+          <Key>
+            <PropertyRef Name="JointID" />
+          </Key>
+          <Property Name="JointID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Angle" Type="Int32" Nullable="false" />
+          <Property Name="JointNumber" Type="Int32" Nullable="false" />
+          <Property Name="Tolerance" Type="Int32" Nullable="false" />
+          <Property Name="ExerciseStepID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ExerciseStep" Relationship="VitruneticsUsersModel.FK_Joint_0" FromRole="Joint" ToRole="ExerciseStep" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="PatientID" />
+          </Key>
+          <Property Name="PatientID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TherapistID" Type="Int32" Nullable="false" />
+          <Property Name="FName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="CreatedDate" Type="Int32" />
+          <Property Name="Calibration" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="UserProfile" Relationship="VitruneticsUsersModel.FK_Patient_0" FromRole="Patient" ToRole="UserProfile" />
+          <NavigationProperty Name="PatientRegimen" Relationship="VitruneticsUsersModel.FK_PatientRegimen_0" FromRole="Patient" ToRole="PatientRegimen" />
+        </EntityType>
+        <EntityType Name="PatientRegimen">
+          <Key>
+            <PropertyRef Name="PatientRegimenID" />
+          </Key>
+          <Property Name="PatientRegimenID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="Int32" Nullable="false" />
+          <Property Name="RegimenID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Patient" Relationship="VitruneticsUsersModel.FK_PatientRegimen_0" FromRole="PatientRegimen" ToRole="Patient" />
+          <NavigationProperty Name="Regimen" Relationship="VitruneticsUsersModel.FK_PatientRegimen_1" FromRole="PatientRegimen" ToRole="Regimen" />
+        </EntityType>
+        <EntityType Name="Regiman">
+          <Key>
+            <PropertyRef Name="RegimenID" />
+          </Key>
+          <Property Name="RegimenID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="RegimenName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ExerciseRegimen" Relationship="VitruneticsUsersModel.FK_ExerciseRegimen_1" FromRole="Regimen" ToRole="ExerciseRegimen" />
+          <NavigationProperty Name="PatientRegimen" Relationship="VitruneticsUsersModel.FK_PatientRegimen_1" FromRole="Regimen" ToRole="PatientRegimen" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Patients" Relationship="VitruneticsUsersModel.FK_Patient_0" FromRole="UserProfile" ToRole="Patient" />
+          <NavigationProperty Name="webpages_Roles" Relationship="VitruneticsUsersModel.webpages_UsersInRoles" FromRole="UserProfile" ToRole="webpages_Roles" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ConfirmationToken" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="IsConfirmed" Type="Boolean" />
+          <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="ProviderUserId" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="UserProfiles" Relationship="VitruneticsUsersModel.webpages_UsersInRoles" FromRole="webpages_Roles" ToRole="UserProfile" />
+        </EntityType>
+        <Association Name="FK_ExerciseRegimen_0">
+          <End Role="Exercise" Type="VitruneticsUsersModel.Exercise" Multiplicity="1" />
+          <End Role="ExerciseRegimen" Type="VitruneticsUsersModel.ExerciseRegiman" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exercise">
+              <PropertyRef Name="ExerciseID" />
+            </Principal>
+            <Dependent Role="ExerciseRegimen">
+              <PropertyRef Name="ExerciseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExerciseSequence_0">
+          <End Role="Exercise" Type="VitruneticsUsersModel.Exercise" Multiplicity="1" />
+          <End Role="ExerciseSequence" Type="VitruneticsUsersModel.ExerciseSequence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exercise">
+              <PropertyRef Name="ExerciseID" />
+            </Principal>
+            <Dependent Role="ExerciseSequence">
+              <PropertyRef Name="ExerciseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExerciseRegimen_1">
+          <End Role="Regimen" Type="VitruneticsUsersModel.Regiman" Multiplicity="1" />
+          <End Role="ExerciseRegimen" Type="VitruneticsUsersModel.ExerciseRegiman" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regimen">
+              <PropertyRef Name="RegimenID" />
+            </Principal>
+            <Dependent Role="ExerciseRegimen">
+              <PropertyRef Name="RegimenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ExerciseStep_0">
+          <End Role="ExerciseSequence" Type="VitruneticsUsersModel.ExerciseSequence" Multiplicity="1" />
+          <End Role="ExerciseStep" Type="VitruneticsUsersModel.ExerciseStep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExerciseSequence">
+              <PropertyRef Name="ExerciseSequenceID" />
+            </Principal>
+            <Dependent Role="ExerciseStep">
+              <PropertyRef Name="ExerciseSequenceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Joint_0">
+          <End Role="ExerciseStep" Type="VitruneticsUsersModel.ExerciseStep" Multiplicity="1" />
+          <End Role="Joint" Type="VitruneticsUsersModel.Joint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ExerciseStep">
+              <PropertyRef Name="ExerciseStepID" />
+            </Principal>
+            <Dependent Role="Joint">
+              <PropertyRef Name="ExerciseStepID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_0">
+          <End Role="UserProfile" Type="VitruneticsUsersModel.UserProfile" Multiplicity="0..1" />
+          <End Role="Patient" Type="VitruneticsUsersModel.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientRegimen_0">
+          <End Role="Patient" Type="VitruneticsUsersModel.Patient" Multiplicity="1" />
+          <End Role="PatientRegimen" Type="VitruneticsUsersModel.PatientRegimen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="PatientID" />
+            </Principal>
+            <Dependent Role="PatientRegimen">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientRegimen_1">
+          <End Role="Regimen" Type="VitruneticsUsersModel.Regiman" Multiplicity="1" />
+          <End Role="PatientRegimen" Type="VitruneticsUsersModel.PatientRegimen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regimen">
+              <PropertyRef Name="RegimenID" />
+            </Principal>
+            <Dependent Role="PatientRegimen">
+              <PropertyRef Name="RegimenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="webpages_UsersInRoles">
+          <End Role="webpages_Roles" Type="VitruneticsUsersModel.webpages_Roles" Multiplicity="*" />
+          <End Role="UserProfile" Type="VitruneticsUsersModel.UserProfile" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VitruneticsUsersModelStoreContainer" CdmEntityContainer="VitruneticsUsersEntities">
+          <EntitySetMapping Name="Exercises">
+            <EntityTypeMapping TypeName="VitruneticsUsersModel.Exercise">
+              <MappingFragment StoreEntitySet="Exercise">
+                <ScalarProperty Name="ExerciseID" ColumnName="ExerciseID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExerciseRegimen">
+            <EntityTypeMapping TypeName="VitruneticsUsersModel.ExerciseRegiman">
+              <MappingFragment StoreEntitySet="ExerciseRegimen">
+                <ScalarProperty Name="ExerciseRegimenID" ColumnName="ExerciseRegimenID" />
+                <ScalarProperty Name="ExerciseID" ColumnName="ExerciseID" />
+                <ScalarProperty Name="RegimenID" ColumnName="RegimenID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExerciseSequences">
+            <EntityTypeMapping TypeName="VitruneticsUsersModel.ExerciseSequence">
+              <MappingFragment StoreEntitySet="ExerciseSequence">
+                <ScalarProperty Name="ExerciseSequenceID" ColumnName="ExerciseSequenceID" />
+                <ScalarProperty Name="ExerciseID" ColumnName="ExerciseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExerciseSteps">
+            <EntityTypeMapping TypeName="VitruneticsUsersModel.ExerciseStep">
+              <MappingFragment StoreEntitySet="ExerciseStep">
+                <ScalarProperty Name="ExerciseStepID" ColumnName="ExerciseStepID" />
+                <ScalarProperty Name="DelayTime" ColumnName="DelayTime" />
+                <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+                <ScalarProperty Name="ExerciseSequenceID" ColumnName="ExerciseSequenceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Joints">
+            <EntityTypeMapping TypeName="VitruneticsUsersModel.Joint">
+              <MappingFragment StoreEntitySet="Joint">
+                <ScalarProperty Name="JointID" ColumnName="JointID" />
+                <ScalarProperty Name="Angle" ColumnName="Angle" />
+                <ScalarProperty Name="JointNumber" ColumnName="JointNumber" />
+                <ScalarProperty Name="Tolerance" ColumnName="Tolerance" />
+                <ScalarProperty Name="ExerciseStepID" ColumnName="ExerciseStepID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="VitruneticsUsersModel.Patient">
+              <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="TherapistID" ColumnName="TherapistID" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Calibration" ColumnName="Calibration" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientRegimen1">
+            <EntityTypeMapping TypeName="VitruneticsUsersModel.PatientRegimen">
+              <MappingFragment StoreEntitySet="PatientRegimen">
+                <ScalarProperty Name="PatientRegimenID" ColumnName="PatientRegimenID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="RegimenID" ColumnName="RegimenID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regimen">
+            <EntityTypeMapping TypeName="VitruneticsUsersModel.Regiman">
+              <MappingFragment StoreEntitySet="Regimen">
+                <ScalarProperty Name="RegimenID" ColumnName="RegimenID" />
+                <ScalarProperty Name="RegimenName" ColumnName="RegimenName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfiles">
+            <EntityTypeMapping TypeName="VitruneticsUsersModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Membership">
+            <EntityTypeMapping TypeName="VitruneticsUsersModel.webpages_Membership">
+              <MappingFragment StoreEntitySet="webpages_Membership">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+                <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+                <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+                <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+                <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_OAuthMembership">
+            <EntityTypeMapping TypeName="VitruneticsUsersModel.webpages_OAuthMembership">
+              <MappingFragment StoreEntitySet="webpages_OAuthMembership">
+                <ScalarProperty Name="Provider" ColumnName="Provider" />
+                <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Roles">
+            <EntityTypeMapping TypeName="VitruneticsUsersModel.webpages_Roles">
+              <MappingFragment StoreEntitySet="webpages_Roles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="webpages_UsersInRoles" TypeName="VitruneticsUsersModel.webpages_UsersInRoles" StoreEntitySet="webpages_UsersInRoles">
+            <EndProperty Name="webpages_Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="UserProfile">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

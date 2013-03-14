@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="72160ebd38834ac2968afac53f2f35c6" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="VitruneticsUsersModel.Exercise" Width="1.5" PointX="7.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VitruneticsUsersModel.ExerciseRegiman" Width="1.5" PointX="10" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VitruneticsUsersModel.ExerciseSequence" Width="1.5" PointX="10" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VitruneticsUsersModel.ExerciseStep" Width="1.5" PointX="12.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VitruneticsUsersModel.Joint" Width="1.5" PointX="14.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VitruneticsUsersModel.Patient" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="VitruneticsUsersModel.PatientRegimen" Width="1.5" PointX="7.5" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VitruneticsUsersModel.Regiman" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VitruneticsUsersModel.UserProfile" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VitruneticsUsersModel.webpages_Membership" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VitruneticsUsersModel.webpages_OAuthMembership" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VitruneticsUsersModel.webpages_Roles" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="VitruneticsUsersModel.FK_ExerciseRegimen_0" ManuallyRouted="false" />
+        <AssociationConnector Association="VitruneticsUsersModel.FK_ExerciseSequence_0" ManuallyRouted="false" />
+        <AssociationConnector Association="VitruneticsUsersModel.FK_ExerciseRegimen_1" ManuallyRouted="false" />
+        <AssociationConnector Association="VitruneticsUsersModel.FK_ExerciseStep_0" ManuallyRouted="false" />
+        <AssociationConnector Association="VitruneticsUsersModel.FK_Joint_0" ManuallyRouted="false" />
+        <AssociationConnector Association="VitruneticsUsersModel.FK_Patient_0" ManuallyRouted="false" />
+        <AssociationConnector Association="VitruneticsUsersModel.FK_PatientRegimen_0" ManuallyRouted="false" />
+        <AssociationConnector Association="VitruneticsUsersModel.FK_PatientRegimen_1" ManuallyRouted="false" />
+        <AssociationConnector Association="VitruneticsUsersModel.webpages_UsersInRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
