@@ -19,6 +19,6 @@ namespace Vitrunetics
         public int RegimenID { get; set; }
     
         public virtual Patient Patient { get; set; }
-        public virtual Regiman Regimen { get; set; }
+        public virtual Regimen Regimen { get; set; }
     }
 }

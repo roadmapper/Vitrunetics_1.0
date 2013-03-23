@@ -303,30 +303,30 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="VitruneticsUsersModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="VitruneticsUsersEntities" p1:LazyLoadingEnabled="true">
+        <EntityContainer Name="VitruneticsContext" p1:LazyLoadingEnabled="true">
           <EntitySet Name="Exercises" EntityType="VitruneticsUsersModel.Exercise" />
-          <EntitySet Name="ExerciseRegimen" EntityType="VitruneticsUsersModel.ExerciseRegiman" />
+          <EntitySet Name="ExerciseRegimen1" EntityType="VitruneticsUsersModel.ExerciseRegimen" />
           <EntitySet Name="ExerciseSequences" EntityType="VitruneticsUsersModel.ExerciseSequence" />
           <EntitySet Name="ExerciseSteps" EntityType="VitruneticsUsersModel.ExerciseStep" />
           <EntitySet Name="Joints" EntityType="VitruneticsUsersModel.Joint" />
           <EntitySet Name="Patients" EntityType="VitruneticsUsersModel.Patient" />
           <EntitySet Name="PatientRegimen1" EntityType="VitruneticsUsersModel.PatientRegimen" />
-          <EntitySet Name="Regimen" EntityType="VitruneticsUsersModel.Regiman" />
+          <EntitySet Name="Regimen1" EntityType="VitruneticsUsersModel.Regimen" />
           <EntitySet Name="UserProfiles" EntityType="VitruneticsUsersModel.UserProfile" />
           <EntitySet Name="webpages_Membership" EntityType="VitruneticsUsersModel.webpages_Membership" />
           <EntitySet Name="webpages_OAuthMembership" EntityType="VitruneticsUsersModel.webpages_OAuthMembership" />
           <EntitySet Name="webpages_Roles" EntityType="VitruneticsUsersModel.webpages_Roles" />
           <AssociationSet Name="FK_ExerciseRegimen_0" Association="VitruneticsUsersModel.FK_ExerciseRegimen_0">
             <End Role="Exercise" EntitySet="Exercises" />
-            <End Role="ExerciseRegimen" EntitySet="ExerciseRegimen" />
+            <End Role="ExerciseRegimen" EntitySet="ExerciseRegimen1" />
           </AssociationSet>
           <AssociationSet Name="FK_ExerciseSequence_0" Association="VitruneticsUsersModel.FK_ExerciseSequence_0">
             <End Role="Exercise" EntitySet="Exercises" />
             <End Role="ExerciseSequence" EntitySet="ExerciseSequences" />
           </AssociationSet>
           <AssociationSet Name="FK_ExerciseRegimen_1" Association="VitruneticsUsersModel.FK_ExerciseRegimen_1">
-            <End Role="Regimen" EntitySet="Regimen" />
-            <End Role="ExerciseRegimen" EntitySet="ExerciseRegimen" />
+            <End Role="Regimen" EntitySet="Regimen1" />
+            <End Role="ExerciseRegimen" EntitySet="ExerciseRegimen1" />
           </AssociationSet>
           <AssociationSet Name="FK_ExerciseStep_0" Association="VitruneticsUsersModel.FK_ExerciseStep_0">
             <End Role="ExerciseSequence" EntitySet="ExerciseSequences" />
@@ -345,7 +345,7 @@
             <End Role="PatientRegimen" EntitySet="PatientRegimen1" />
           </AssociationSet>
           <AssociationSet Name="FK_PatientRegimen_1" Association="VitruneticsUsersModel.FK_PatientRegimen_1">
-            <End Role="Regimen" EntitySet="Regimen" />
+            <End Role="Regimen" EntitySet="Regimen1" />
             <End Role="PatientRegimen" EntitySet="PatientRegimen1" />
           </AssociationSet>
           <AssociationSet Name="webpages_UsersInRoles" Association="VitruneticsUsersModel.webpages_UsersInRoles">
@@ -362,7 +362,7 @@
           <NavigationProperty Name="ExerciseRegimen" Relationship="VitruneticsUsersModel.FK_ExerciseRegimen_0" FromRole="Exercise" ToRole="ExerciseRegimen" />
           <NavigationProperty Name="ExerciseSequences" Relationship="VitruneticsUsersModel.FK_ExerciseSequence_0" FromRole="Exercise" ToRole="ExerciseSequence" />
         </EntityType>
-        <EntityType Name="ExerciseRegiman">
+        <EntityType Name="ExerciseRegimen">
           <Key>
             <PropertyRef Name="ExerciseRegimenID" />
           </Key>
@@ -430,7 +430,7 @@
           <NavigationProperty Name="Patient" Relationship="VitruneticsUsersModel.FK_PatientRegimen_0" FromRole="PatientRegimen" ToRole="Patient" />
           <NavigationProperty Name="Regimen" Relationship="VitruneticsUsersModel.FK_PatientRegimen_1" FromRole="PatientRegimen" ToRole="Regimen" />
         </EntityType>
-        <EntityType Name="Regiman">
+        <EntityType Name="Regimen">
           <Key>
             <PropertyRef Name="RegimenID" />
           </Key>
@@ -483,7 +483,7 @@
         </EntityType>
         <Association Name="FK_ExerciseRegimen_0">
           <End Role="Exercise" Type="VitruneticsUsersModel.Exercise" Multiplicity="1" />
-          <End Role="ExerciseRegimen" Type="VitruneticsUsersModel.ExerciseRegiman" Multiplicity="*" />
+          <End Role="ExerciseRegimen" Type="VitruneticsUsersModel.ExerciseRegimen" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Exercise">
               <PropertyRef Name="ExerciseID" />
@@ -506,8 +506,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ExerciseRegimen_1">
-          <End Role="Regimen" Type="VitruneticsUsersModel.Regiman" Multiplicity="1" />
-          <End Role="ExerciseRegimen" Type="VitruneticsUsersModel.ExerciseRegiman" Multiplicity="*" />
+          <End Role="Regimen" Type="VitruneticsUsersModel.Regimen" Multiplicity="1" />
+          <End Role="ExerciseRegimen" Type="VitruneticsUsersModel.ExerciseRegimen" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Regimen">
               <PropertyRef Name="RegimenID" />
@@ -566,7 +566,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PatientRegimen_1">
-          <End Role="Regimen" Type="VitruneticsUsersModel.Regiman" Multiplicity="1" />
+          <End Role="Regimen" Type="VitruneticsUsersModel.Regimen" Multiplicity="1" />
           <End Role="PatientRegimen" Type="VitruneticsUsersModel.PatientRegimen" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Regimen">
@@ -586,7 +586,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="VitruneticsUsersModelStoreContainer" CdmEntityContainer="VitruneticsUsersEntities">
+        <EntityContainerMapping StorageEntityContainer="VitruneticsUsersModelStoreContainer" CdmEntityContainer="VitruneticsContext">
           <EntitySetMapping Name="Exercises">
             <EntityTypeMapping TypeName="VitruneticsUsersModel.Exercise">
               <MappingFragment StoreEntitySet="Exercise">
@@ -595,8 +595,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ExerciseRegimen">
-            <EntityTypeMapping TypeName="VitruneticsUsersModel.ExerciseRegiman">
+          <EntitySetMapping Name="ExerciseRegimen1">
+            <EntityTypeMapping TypeName="VitruneticsUsersModel.ExerciseRegimen">
               <MappingFragment StoreEntitySet="ExerciseRegimen">
                 <ScalarProperty Name="ExerciseRegimenID" ColumnName="ExerciseRegimenID" />
                 <ScalarProperty Name="ExerciseID" ColumnName="ExerciseID" />
@@ -658,8 +658,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Regimen">
-            <EntityTypeMapping TypeName="VitruneticsUsersModel.Regiman">
+          <EntitySetMapping Name="Regimen1">
+            <EntityTypeMapping TypeName="VitruneticsUsersModel.Regimen">
               <MappingFragment StoreEntitySet="Regimen">
                 <ScalarProperty Name="RegimenID" ColumnName="RegimenID" />
                 <ScalarProperty Name="RegimenName" ColumnName="RegimenName" />

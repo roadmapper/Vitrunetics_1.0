@@ -7,13 +7,21 @@
         <legend>@Model.GetLabel() <small>Details</small></legend>
         @foreach (var property in Model.VisibleProperties())
         {
-            using(Html.ControlGroupFor(property.Name)){
+            if (property.Name.Equals("PatientID") || property.Name.Equals("TherapistID") || property.Name.Equals("UserId") || property.Name.Equals("CreatedDate") || property.Name.Equals("UserProfile") || property.Name.Equals("PatientRegimen"))
+            { 
+                
+            }
+            else
+            {
+                using(Html.ControlGroupFor(property.Name)){
                 @Html.Label(property.Name.ToSeparatedWords(), new { @class = "control-label" })
                  <div class="controls">
                      @Html.Editor(property.Name, new { @class = "input-xlarge" })
                      @Html.ValidationMessage(property.Name, null, new { @class = "help-inline" })
                  </div>
             }
+            
+            }    
         }
 		<div class="form-actions">
             <button type="submit" class="btn btn-primary">Save changes</button>

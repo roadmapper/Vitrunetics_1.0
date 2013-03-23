@@ -1,31 +1,67 @@
 ﻿@using Vitrunetics.BootstrapSupport
-@model System.Collections.IEnumerable 
+@model IEnumerable<Vitrunetics.Patient>
 
 <h4>@Model.GetLabel() <small>Listing </small></h4>
 <table class="table table-striped">
     <caption></caption>
     <thead>
         <tr>
-            @foreach (var property in Model.VisibleProperties())
-            {
-                <th>
-                    @property.GetLabel().ToSeparatedWords()
-                </th>
-            }
+            <th>
+                @Html.DisplayNameFor(model => model.FName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DOB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Calibration)
+            </th>
             <th></th>
         </tr>
     </thead>
     @{ int index = 0; }
-    @foreach (var model in Model)
+    @foreach (var item in Model)
     {
-        ViewData[index.ToString()] = model;
+        ViewData[index.ToString()] = item;
         <tr>
-            @foreach (var property in model.VisibleProperties())
-            {
-                <td>
-                    @Html.Display(index + "." + property.Name)
-                </td>                    
-            }
+            <td>
+                @Html.DisplayFor(modelItem => item.FName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Calibration)
+            </td>
             <td>
                 <div class="btn-group">
                     <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
@@ -34,12 +70,12 @@
                     </a>
                     <ul class="dropdown-menu">
                         @{
-                            @Html.TryPartial("_actions", model)                            
-                            var routevalues = model.GetIdValue();  
-                            <li>@Html.ActionLink("Edit", "Edit", routevalues)</li>
-                            <li>@Html.ActionLink("Details", "Details", routevalues)</li>
+                            @Html.TryPartial("_actions", item)                            
+                            var routevalues = item.PatientID;  
+                            <li>@Html.ActionLink("Edit", "Edit", new { id = item.PatientID})</li>
+                            <li>@Html.ActionLink("Details", "Details", new { id = item.PatientID})</li>
                             <li class="divider"></li>
-                            <li>@Html.ActionLink("Delete", "Delete", routevalues)</li>
+                            <li>@Html.ActionLink("Delete", "Delete", new { id = item.PatientID})</li>
                               
                         }
                     </ul>

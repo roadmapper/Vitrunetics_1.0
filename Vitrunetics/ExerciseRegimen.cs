@@ -12,13 +12,13 @@ namespace Vitrunetics
     using System;
     using System.Collections.Generic;
     
-    public partial class ExerciseRegiman
+    public partial class ExerciseRegimen
     {
         public int ExerciseRegimenID { get; set; }
         public int ExerciseID { get; set; }
         public int RegimenID { get; set; }
     
         public virtual Exercise Exercise { get; set; }
-        public virtual Regiman Regimen { get; set; }
+        public virtual Regimen Regimen { get; set; }
     }
 }

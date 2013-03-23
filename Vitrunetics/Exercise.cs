@@ -16,14 +16,14 @@ namespace Vitrunetics
     {
         public Exercise()
         {
-            this.ExerciseRegimen = new HashSet<ExerciseRegiman>();
+            this.ExerciseRegimen = new HashSet<ExerciseRegimen>();
             this.ExerciseSequences = new HashSet<ExerciseSequence>();
         }
     
         public int ExerciseID { get; set; }
         public string Name { get; set; }
     
-        public virtual ICollection<ExerciseRegiman> ExerciseRegimen { get; set; }
+        public virtual ICollection<ExerciseRegimen> ExerciseRegimen { get; set; }
         public virtual ICollection<ExerciseSequence> ExerciseSequences { get; set; }
     }
 }

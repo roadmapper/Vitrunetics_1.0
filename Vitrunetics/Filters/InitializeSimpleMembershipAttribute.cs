@@ -30,14 +30,14 @@ namespace Vitrunetics.Filters
 
                 try
                 {
-                    //using (var context = new VitruneticsUsersEntities())
-                    //{
-                    //    if (!context.Database.Exists())
-                    //    {
-                    //        // Create the SimpleMembership database without Entity Framework migration schema
-                    //        ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
-                    //    }
-                    //}
+                    using (var context = new VitruneticsContext())
+                    {
+                        if (!context.Database.Exists())
+                        {
+                            // Create the SimpleMembership database without Entity Framework migration schema
+                            ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
+                        }
+                    }
 
                     WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
                 }

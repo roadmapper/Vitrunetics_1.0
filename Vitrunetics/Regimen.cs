@@ -12,18 +12,18 @@ namespace Vitrunetics
     using System;
     using System.Collections.Generic;
     
-    public partial class Regiman
+    public partial class Regimen
     {
-        public Regiman()
+        public Regimen()
         {
-            this.ExerciseRegimen = new HashSet<ExerciseRegiman>();
+            this.ExerciseRegimen = new HashSet<ExerciseRegimen>();
             this.PatientRegimen = new HashSet<PatientRegimen>();
         }
     
         public int RegimenID { get; set; }
         public string RegimenName { get; set; }
     
-        public virtual ICollection<ExerciseRegiman> ExerciseRegimen { get; set; }
+        public virtual ICollection<ExerciseRegimen> ExerciseRegimen { get; set; }
         public virtual ICollection<PatientRegimen> PatientRegimen { get; set; }
     }
 }

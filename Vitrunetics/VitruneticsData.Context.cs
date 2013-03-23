@@ -13,10 +13,10 @@ namespace Vitrunetics
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class VitruneticsUsersEntities : DbContext
+    public partial class VitruneticsContext : DbContext
     {
-        public VitruneticsUsersEntities()
-            : base("name=VitruneticsUsersEntities")
+        public VitruneticsContext()
+            : base("name=VitruneticsContext")
         {
         }
     
@@ -26,13 +26,13 @@ namespace Vitrunetics
         }
     
         public DbSet<Exercise> Exercises { get; set; }
-        public DbSet<ExerciseRegiman> ExerciseRegimen { get; set; }
+        public DbSet<ExerciseRegimen> ExerciseRegimen1 { get; set; }
         public DbSet<ExerciseSequence> ExerciseSequences { get; set; }
         public DbSet<ExerciseStep> ExerciseSteps { get; set; }
         public DbSet<Joint> Joints { get; set; }
         public DbSet<Patient> Patients { get; set; }
         public DbSet<PatientRegimen> PatientRegimen1 { get; set; }
-        public DbSet<Regiman> Regimen { get; set; }
+        public DbSet<Regimen> Regimen1 { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<webpages_Membership> webpages_Membership { get; set; }
         public DbSet<webpages_OAuthMembership> webpages_OAuthMembership { get; set; }

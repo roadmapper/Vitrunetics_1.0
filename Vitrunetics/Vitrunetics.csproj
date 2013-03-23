@@ -190,69 +190,66 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Exercise.cs">
-      <DependentUpon>Vitrunetics_Data.tt</DependentUpon>
+      <DependentUpon>VitruneticsData.tt</DependentUpon>
     </Compile>
-    <Compile Include="ExerciseRegiman.cs">
-      <DependentUpon>Vitrunetics_Data.tt</DependentUpon>
+    <Compile Include="ExerciseRegimen.cs">
+      <DependentUpon>VitruneticsData.tt</DependentUpon>
     </Compile>
     <Compile Include="ExerciseSequence.cs">
-      <DependentUpon>Vitrunetics_Data.tt</DependentUpon>
+      <DependentUpon>VitruneticsData.tt</DependentUpon>
     </Compile>
     <Compile Include="ExerciseStep.cs">
-      <DependentUpon>Vitrunetics_Data.tt</DependentUpon>
+      <DependentUpon>VitruneticsData.tt</DependentUpon>
     </Compile>
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Joint.cs">
-      <DependentUpon>Vitrunetics_Data.tt</DependentUpon>
+      <DependentUpon>VitruneticsData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\Exercise.cs" />
-    <Compile Include="Models\Patient.cs" />
-    <Compile Include="Models\PatientExerciseViewModel.cs" />
     <Compile Include="NavigationRoutes\INavigationRouteFilter.cs" />
     <Compile Include="NavigationRoutes\NamedRoute.cs" />
     <Compile Include="NavigationRoutes\NavigationExtensions.cs" />
     <Compile Include="NavigationRoutes\NavigationRouteConfigurationExtensions.cs" />
     <Compile Include="NavigationRoutes\NavigationRouteFilter.cs" />
     <Compile Include="Patient.cs">
-      <DependentUpon>Vitrunetics_Data.tt</DependentUpon>
+      <DependentUpon>VitruneticsData.tt</DependentUpon>
     </Compile>
     <Compile Include="PatientRegimen.cs">
-      <DependentUpon>Vitrunetics_Data.tt</DependentUpon>
+      <DependentUpon>VitruneticsData.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Regiman.cs">
-      <DependentUpon>Vitrunetics_Data.tt</DependentUpon>
+    <Compile Include="Regimen.cs">
+      <DependentUpon>VitruneticsData.tt</DependentUpon>
     </Compile>
     <Compile Include="UserProfile.cs">
-      <DependentUpon>Vitrunetics_Data.tt</DependentUpon>
+      <DependentUpon>VitruneticsData.tt</DependentUpon>
     </Compile>
-    <Compile Include="Vitrunetics_Data.Context.cs">
+    <Compile Include="VitruneticsData.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Vitrunetics_Data.Context.tt</DependentUpon>
+      <DependentUpon>VitruneticsData.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Vitrunetics_Data.cs">
+    <Compile Include="VitruneticsData.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Vitrunetics_Data.tt</DependentUpon>
+      <DependentUpon>VitruneticsData.tt</DependentUpon>
     </Compile>
-    <Compile Include="Vitrunetics_Data.Designer.cs">
+    <Compile Include="VitruneticsData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Vitrunetics_Data.edmx</DependentUpon>
+      <DependentUpon>VitruneticsData.edmx</DependentUpon>
     </Compile>
     <Compile Include="webpages_Membership.cs">
-      <DependentUpon>Vitrunetics_Data.tt</DependentUpon>
+      <DependentUpon>VitruneticsData.tt</DependentUpon>
     </Compile>
     <Compile Include="webpages_OAuthMembership.cs">
-      <DependentUpon>Vitrunetics_Data.tt</DependentUpon>
+      <DependentUpon>VitruneticsData.tt</DependentUpon>
     </Compile>
     <Compile Include="webpages_Roles.cs">
-      <DependentUpon>Vitrunetics_Data.tt</DependentUpon>
+      <DependentUpon>VitruneticsData.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -384,22 +381,22 @@
     <Content Include="Views\Dashboard\Details.cshtml" />
     <Content Include="Views\Dashboard\CreateExercise.cshtml" />
     <Content Include="Views\Dashboard\DetailsExercise.cshtml" />
-    <EntityDeploy Include="Vitrunetics_Data.edmx">
+    <EntityDeploy Include="VitruneticsData.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Vitrunetics_Data.Designer.cs</LastGenOutput>
+      <LastGenOutput>VitruneticsData.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Vitrunetics_Data.Context.tt">
+    <Content Include="VitruneticsData.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Vitrunetics_Data.edmx</DependentUpon>
-      <LastGenOutput>Vitrunetics_Data.Context.cs</LastGenOutput>
+      <DependentUpon>VitruneticsData.edmx</DependentUpon>
+      <LastGenOutput>VitruneticsData.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Vitrunetics_Data.edmx.diagram">
-      <DependentUpon>Vitrunetics_Data.edmx</DependentUpon>
+    <Content Include="VitruneticsData.edmx.diagram">
+      <DependentUpon>VitruneticsData.edmx</DependentUpon>
     </Content>
-    <Content Include="Vitrunetics_Data.tt">
+    <Content Include="VitruneticsData.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Vitrunetics_Data.edmx</DependentUpon>
-      <LastGenOutput>Vitrunetics_Data.cs</LastGenOutput>
+      <DependentUpon>VitruneticsData.edmx</DependentUpon>
+      <LastGenOutput>VitruneticsData.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
