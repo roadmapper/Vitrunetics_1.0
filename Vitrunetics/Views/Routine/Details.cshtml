@@ -1,0 +1,22 @@
+﻿@model Vitrunetics.Regimen
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Regimen</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RegimenName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RegimenName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.RegimenID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,45 @@
+﻿@model Vitrunetics.ExerciseRegimen
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ExerciseRegimen</legend>
+
+        @Html.HiddenFor(model => model.ExerciseRegimenID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ExerciseID, "Exercise")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ExerciseID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ExerciseID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RegimenID, "Regimen")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("RegimenID", String.Empty)
+            @Html.ValidationMessageFor(model => model.RegimenID)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

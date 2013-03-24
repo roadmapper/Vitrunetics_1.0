@@ -1,0 +1,29 @@
+﻿@model Vitrunetics.PatientRegimen
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>PatientRegimen</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Patient.FName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Patient.FName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Regimen.RegimenName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Regimen.RegimenName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PatientRegimenID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

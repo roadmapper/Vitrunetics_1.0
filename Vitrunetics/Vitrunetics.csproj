@@ -188,7 +188,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BootstrapBaseController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\ExerciseController.cs" />
+    <Compile Include="Controllers\ExerciseRegimenController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PatientRegimenController.cs" />
+    <Compile Include="Controllers\RoutineController.cs" />
     <Compile Include="Exercise.cs">
       <DependentUpon>VitruneticsData.tt</DependentUpon>
     </Compile>
@@ -336,6 +340,7 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Vitrunetics.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -398,6 +403,26 @@
       <DependentUpon>VitruneticsData.edmx</DependentUpon>
       <LastGenOutput>VitruneticsData.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\Routine\Index.cshtml" />
+    <Content Include="Views\Routine\Details.cshtml" />
+    <Content Include="Views\Routine\Create.cshtml" />
+    <Content Include="Views\Routine\Edit.cshtml" />
+    <Content Include="Views\Routine\Delete.cshtml" />
+    <Content Include="Views\Exercise\Index.cshtml" />
+    <Content Include="Views\Exercise\Details.cshtml" />
+    <Content Include="Views\Exercise\Create.cshtml" />
+    <Content Include="Views\Exercise\Edit.cshtml" />
+    <Content Include="Views\Exercise\Delete.cshtml" />
+    <Content Include="Views\ExerciseRegimen\Index.cshtml" />
+    <Content Include="Views\ExerciseRegimen\Details.cshtml" />
+    <Content Include="Views\ExerciseRegimen\Create.cshtml" />
+    <Content Include="Views\ExerciseRegimen\Edit.cshtml" />
+    <Content Include="Views\ExerciseRegimen\Delete.cshtml" />
+    <Content Include="Views\PatientRegimen\Index.cshtml" />
+    <Content Include="Views\PatientRegimen\Details.cshtml" />
+    <Content Include="Views\PatientRegimen\Create.cshtml" />
+    <Content Include="Views\PatientRegimen\Edit.cshtml" />
+    <Content Include="Views\PatientRegimen\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

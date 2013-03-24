@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -151,6 +153,50 @@ namespace Vitrunetics.Controllers
                 return View(db.Patients.Find(id));
             }
             //return View(model);
+        }
+
+        public ActionResult ViewRegimen(int id)
+        {
+            //SqlConnection connection;
+            
+            //   connection = new SqlConnection("Server=tcp:zt0u9ybydt.database.windows.net,1433;Database=VitruneticsUsers;User ID=vitrunetics@zt0u9ybydt;Password=KinectPT1;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;");
+            //   SqlCommand command = new SqlCommand("SELECT * FROM Patient INNER JOIN PatientRegimen ON Patient.PatientID=PatientRegimen.PatientID INNER JOIN Regimen ON Regimen.RegimenID=PatientRegimen.RegimenID INNER JOIN ExerciseRegimen ON ExerciseRegimen.RegimenID=Regimen.RegimenID INNER JOIN Exercise ON Exercise.ExerciseID=ExerciseRegimen.ExerciseID INNER JOIN ExerciseSequence ON ExerciseSequence.ExerciseID=Exercise.ExerciseID INNER JOIN ExerciseStep ON ExerciseStep.ExerciseSequenceID=ExerciseSequence.ExerciseSequenceID INNER JOIN Joint ON Joint.ExerciseStepID=ExerciseStep.ExerciseStepID", connection);
+
+            //   connection.Open();
+            //   SqlDataReader reader = command.ExecuteReader(); 
+            //   // Create a DataTable object to hold all the data returned by the query.
+            //   DataTable dataTable = new DataTable();
+            //    // Use the DataTable.Load(SqlDataReader) function to put the results of the query into a DataTable.
+            //    dataTable.Load(reader);
+            //    String columns = string.Empty;
+            //    foreach (DataColumn column in dataTable.Columns)
+            //    {
+            //        columns += column.ColumnName + " | ";
+            //    }
+            //    int topRows = 10;
+                
+            //    for (int i = 0; i < topRows; i++)
+            //    {
+            //        String rowText = string.Empty;
+            //        foreach (DataColumn column in dataTable.Columns)
+            //        {
+            //            rowText += dataTable.Rows[i][column.ColumnName] + " | ";
+            //        }
+            //        //Console.WriteLine(rowText);
+            //    }
+            //    connection.Close();
+            
+            
+            
+ 
+            
+
+            //SELECT * FROM Patient INNER JOIN PatientRegimen ON Patient.PatientID=PatientRegimen.PatientID INNER JOIN Regimen ON Regimen.RegimenID=PatientRegimen.RegimenID INNER JOIN ExerciseRegimen ON ExerciseRegimen.RegimenID=Regimen.RegimenID INNER JOIN Exercise ON Exercise.ExerciseID=ExerciseRegimen.ExerciseID INNER JOIN ExerciseSequence ON ExerciseSequence.ExerciseID=Exercise.ExerciseID INNER JOIN ExerciseStep ON ExerciseStep.ExerciseSequenceID=ExerciseSequence.ExerciseSequenceID INNER JOIN Joint ON Joint.ExerciseStepID=ExerciseStep.ExerciseStepID
+            using (var db = new VitruneticsContext())
+            {
+                //var blogs = db.Database.SqlQuery<string>("SELECT * FROM Patient INNER JOIN PatientRegimen ON Patient.PatientID=PatientRegimen.PatientID INNER JOIN Regimen ON Regimen.RegimenID=PatientRegimen.RegimenID INNER JOIN ExerciseRegimen ON ExerciseRegimen.RegimenID=Regimen.RegimenID INNER JOIN Exercise ON Exercise.ExerciseID=ExerciseRegimen.ExerciseID INNER JOIN ExerciseSequence ON ExerciseSequence.ExerciseID=Exercise.ExerciseID INNER JOIN ExerciseStep ON ExerciseStep.ExerciseSequenceID=ExerciseSequence.ExerciseSequenceID INNER JOIN Joint ON Joint.ExerciseStepID=ExerciseStep.ExerciseStepID").ToList();
+                return View(blogs);
+            }
         }
 
         //public ActionResult DetailsExercise(int id)
