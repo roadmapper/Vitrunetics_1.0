@@ -1,0 +1,36 @@
+﻿@model Vitrunetics.ExerciseStep
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ExerciseStep</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DelayTime)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DelayTime)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Instructions)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Instructions)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ExerciseSequence.ExerciseSequenceID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ExerciseSequence.ExerciseSequenceID)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ExerciseStepID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Vitrunetics.Joint>
+
+@{
+    ViewBag.Title = "Joints";
+}
+
+<h2>Joints</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Angle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JointNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tolerance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExerciseStep.Instructions)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Angle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JointNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tolerance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExerciseStep.Instructions)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.JointID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.JointID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.JointID })
+        </td>
+    </tr>
+}
+
+</table>

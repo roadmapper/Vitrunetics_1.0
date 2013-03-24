@@ -190,7 +190,9 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\ExerciseController.cs" />
     <Compile Include="Controllers\ExerciseRegimenController.cs" />
+    <Compile Include="Controllers\ExerciseStepController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JointController.cs" />
     <Compile Include="Controllers\PatientRegimenController.cs" />
     <Compile Include="Controllers\RoutineController.cs" />
     <Compile Include="Exercise.cs">
@@ -423,6 +425,16 @@
     <Content Include="Views\PatientRegimen\Create.cshtml" />
     <Content Include="Views\PatientRegimen\Edit.cshtml" />
     <Content Include="Views\PatientRegimen\Delete.cshtml" />
+    <Content Include="Views\Joint\Index.cshtml" />
+    <Content Include="Views\Joint\Details.cshtml" />
+    <Content Include="Views\Joint\Create.cshtml" />
+    <Content Include="Views\Joint\Edit.cshtml" />
+    <Content Include="Views\Joint\Delete.cshtml" />
+    <Content Include="Views\ExerciseStep\Index.cshtml" />
+    <Content Include="Views\ExerciseStep\Details.cshtml" />
+    <Content Include="Views\ExerciseStep\Create.cshtml" />
+    <Content Include="Views\ExerciseStep\Edit.cshtml" />
+    <Content Include="Views\ExerciseStep\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

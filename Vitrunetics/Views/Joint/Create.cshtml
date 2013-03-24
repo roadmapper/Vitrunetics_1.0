@@ -1,0 +1,59 @@
+﻿@model Vitrunetics.Joint
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Joint</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Angle)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Angle)
+            @Html.ValidationMessageFor(model => model.Angle)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.JointNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.JointNumber)
+            @Html.ValidationMessageFor(model => model.JointNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Tolerance)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Tolerance)
+            @Html.ValidationMessageFor(model => model.Tolerance)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ExerciseStepID, "ExerciseStep")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ExerciseStepID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ExerciseStepID)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

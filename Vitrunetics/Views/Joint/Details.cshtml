@@ -1,0 +1,43 @@
+﻿@model Vitrunetics.Joint
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Joint</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Angle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Angle)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.JointNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JointNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Tolerance)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Tolerance)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ExerciseStep.Instructions)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ExerciseStep.Instructions)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.JointID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
